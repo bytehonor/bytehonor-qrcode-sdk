@@ -14,6 +14,7 @@ import java.util.Objects;
 
 import javax.imageio.ImageIO;
 
+import com.bytehonor.sdk.qrcode.bytehonor.cache.BufferedImageCache;
 import com.bytehonor.sdk.qrcode.bytehonor.constant.QrcodeConstants;
 import com.bytehonor.sdk.qrcode.bytehonor.exception.BytehonorQrcodeException;
 import com.bytehonor.sdk.qrcode.bytehonor.model.QrcodeRequest;
@@ -38,7 +39,7 @@ public class GoogleQrcodeBuilder {
 
     // 二维码写码器
     private static MultiFormatWriter WRITER = new MultiFormatWriter();
-    
+
     public static void build(QrcodeRequest request) {
         Objects.requireNonNull(request, "request");
         if (request.getLogoPath() != null) {
@@ -91,7 +92,11 @@ public class GoogleQrcodeBuilder {
     private static BufferedImage genBarcode(String content, int width, int height, String logoPath)
             throws WriterException, IOException {
         // 读取源图像
-        BufferedImage logoImage = scale(logoPath, IMAGE_WIDTH, IMAGE_HEIGHT, true);
+        BufferedImage logoImage = BufferedImageCache.get(logoPath);
+        if (logoImage == null) {
+            logoImage = scale(logoPath, IMAGE_WIDTH, IMAGE_HEIGHT, true);
+            BufferedImageCache.put(logoPath, logoImage);
+        }
         int[][] srcPixels = new int[IMAGE_WIDTH][IMAGE_HEIGHT];
         for (int i = 0; i < logoImage.getWidth(); i++) {
             for (int j = 0; j < logoImage.getHeight(); j++) {
