@@ -13,7 +13,7 @@ public class GoogleQrcodeBuilderTest {
     @Test
     public void testBuildWithLogo() {
         String destPath = "D:/data/testBuildWithLogo.png";
-        String logoPath = "D:/data/weibo_500.jpeg";
+        String logoPath = "D:/data/wechatpay_logo_150.jpg";
         QrcodeRequest reuqest = QrcodeRequest.make("hello world", destPath, logoPath);
         GoogleQrcodeBuilder.build(reuqest);
 
