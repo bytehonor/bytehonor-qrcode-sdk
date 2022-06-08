@@ -1,4 +1,4 @@
-package com.bytehonor.sdk.qrcode.bytehonor.cache;
+package com.bytehonor.sdk.qrcode.google.cache;
 
 import java.awt.image.BufferedImage;
 import java.util.Map;

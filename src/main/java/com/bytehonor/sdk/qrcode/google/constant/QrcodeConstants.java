@@ -1,4 +1,4 @@
-package com.bytehonor.sdk.qrcode.bytehonor.constant;
+package com.bytehonor.sdk.qrcode.google.constant;
 
 public class QrcodeConstants {
     // 图片宽度的一般

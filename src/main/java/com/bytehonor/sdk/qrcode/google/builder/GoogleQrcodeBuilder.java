@@ -1,4 +1,4 @@
-package com.bytehonor.sdk.qrcode.bytehonor.builder;
+package com.bytehonor.sdk.qrcode.google.builder;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -14,10 +14,10 @@ import java.util.Objects;
 
 import javax.imageio.ImageIO;
 
-import com.bytehonor.sdk.qrcode.bytehonor.cache.BufferedImageCache;
-import com.bytehonor.sdk.qrcode.bytehonor.constant.QrcodeConstants;
-import com.bytehonor.sdk.qrcode.bytehonor.exception.BytehonorQrcodeException;
-import com.bytehonor.sdk.qrcode.bytehonor.model.QrcodeRequest;
+import com.bytehonor.sdk.qrcode.google.cache.BufferedImageCache;
+import com.bytehonor.sdk.qrcode.google.constant.QrcodeConstants;
+import com.bytehonor.sdk.qrcode.google.exception.QrcodeSdkException;
+import com.bytehonor.sdk.qrcode.google.model.QrcodeRequest;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -59,7 +59,7 @@ public class GoogleQrcodeBuilder {
                     genBarcode(request.getContent(), request.getWidth(), request.getHeight(), request.getLogoPath()),
                     FORMAT, new File(request.getDestPath()));
         } catch (Exception e) {
-            throw new BytehonorQrcodeException(e.getMessage());
+            throw new QrcodeSdkException(e.getMessage());
         }
     }
 
@@ -85,7 +85,7 @@ public class GoogleQrcodeBuilder {
             // 导出到指定目录
             MatrixToImageWriter.writeToPath(matrix, FORMAT, new File(request.getDestPath()).toPath());
         } catch (Exception e) {
-            throw new BytehonorQrcodeException(e);
+            throw new QrcodeSdkException(e);
         }
     }
 

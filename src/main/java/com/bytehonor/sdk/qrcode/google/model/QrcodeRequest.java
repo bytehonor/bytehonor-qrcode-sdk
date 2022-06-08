@@ -1,4 +1,4 @@
-package com.bytehonor.sdk.qrcode.bytehonor.model;
+package com.bytehonor.sdk.qrcode.google.model;
 
 import java.util.Objects;
 

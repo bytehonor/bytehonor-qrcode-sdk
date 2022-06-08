@@ -1,2 +1,2 @@
-# bytehonor-qrcode-sdk
-bytehonor qrcode
+# google-qrcode-sdk
+google-qrcode-sdk

@@ -1,4 +1,4 @@
-package com.bytehonor.sdk.qrcode.bytehonor.builder;
+package com.bytehonor.sdk.qrcode.google.builder;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,7 +6,7 @@ import java.io.File;
 
 import org.junit.Test;
 
-import com.bytehonor.sdk.qrcode.bytehonor.model.QrcodeRequest;
+import com.bytehonor.sdk.qrcode.google.model.QrcodeRequest;
 
 public class GoogleQrcodeBuilderTest {
 
